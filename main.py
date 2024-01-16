@@ -59,7 +59,7 @@ async def validate_token(token, ip, chat_type, chat_token):
 
 async def check_name_exists(chat_type, chat_token, name):
     for user in data[chat_type][chat_token]["users"]:
-        if data[chat_type][chat_token]["users"][user]["name"].lower() == name.lower():
+        if data[chat_type][chat_token]["users"][user]["name"].lower() == name.lower() and "socket" in data[chat_type][chat_token]["users"][user]:
             return True
     return False
 
